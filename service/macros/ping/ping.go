@@ -20,7 +20,10 @@ import (
 
 func pingViaTrace(ctx context.Context, p interfaces.Vendor, url string) (uint16, uint16, error) {
 	transport := &http.Transport{
-		Dial: func(string, string) (net.Conn, error) {
+		//Dial: func(string, string) (net.Conn, error) {
+		//	return p.DialTCP(ctx, url, interfaces.ROptionsTCP)
+		//},
+		DialContext: func(context.Context, string, string) (net.Conn, error) {
 			return p.DialTCP(ctx, url, interfaces.ROptionsTCP)
 		},
 		// from http.DefaultTransport

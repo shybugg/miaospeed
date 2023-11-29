@@ -37,7 +37,7 @@ func hashMiaoSpeed(token, request string) string {
 func SignRequest(token string, req *interfaces.SlaveRequest) string {
 	awaitSigned := req.Clone()
 	awaitSigned.Challenge = ""
-	awaitSigned.Configs.Scripts = nil // 这个地方为FullTClash独家修改，因为json反序列化很容易将主端发送过来的数据改动，所以只好置为空
+	awaitSigned.Configs.Scripts = make([]interfaces.Script, 0) // 这个地方为FullTClash独家修改，因为json反序列化很容易将主端发送过来的数据改动，所以只好置为空
 	awaitSignedStr, _ := jsoniter.MarshalToString(&awaitSigned)
 	awaitSignedStr = strings.TrimSpace(awaitSignedStr)
 	return hashMiaoSpeed(token, awaitSignedStr)
