@@ -100,4 +100,4 @@ require (
 	lukechampine.com/blake3 v1.2.1 // indirect
 )
 
-replace github.com/Dreamacro/clash => github.com/MetaCubeX/Clash.Meta v1.16.0
+replace github.com/Dreamacro/clash => github.com/MetaCubeX/mihomo v1.16.0
