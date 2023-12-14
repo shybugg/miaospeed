@@ -43,9 +43,6 @@ func (c *Clash) DialTCP(ctx context.Context, url string, network interfaces.Requ
 		return nil, fmt.Errorf("cannot build tcp context")
 	}
 	conn, err := c.proxy.DialContext(ctx, &addr)
-	if err != nil {
-		println(err.Error())
-	}
 	return conn, err
 }
 

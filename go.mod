@@ -1,6 +1,6 @@
 module github.com/miaokobot/miaospeed
 
-go 1.18
+go 1.20
 
 require (
 	github.com/Dreamacro/clash v1.11.4
