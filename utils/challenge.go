@@ -39,6 +39,7 @@ func SignRequest(token string, req *interfaces.SlaveRequest) string {
 	awaitSigned.Challenge = ""
 	if awaitSigned.RandomSequence == "" {
 		awaitSigned.Configs.Scripts = make([]interfaces.Script, 0) // 这个地方为FullTClash独家修改，因为json反序列化很容易将主端发送过来的数据改动，所以只好置为空
+		awaitSigned.Nodes = make([]interfaces.SlaveRequestNode, 0) // 同上
 	}
 	awaitSignedStr, _ := jsoniter.MarshalToString(&awaitSigned) //序列化
 	awaitSignedStr = strings.TrimSpace(awaitSignedStr)          //去除多余空格
